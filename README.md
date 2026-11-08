@@ -10,36 +10,47 @@ This project focuses on three questions:
 - How can customers be grouped based on their purchase history?
 - Which customer segments contribute the most revenue?
 
-## Tools
+## Tools & Libraries
 
-- **Python**
-- **Pandas** for data cleaning and analysis
-- **Matplotlib & Seaborn** for visualizations
-- **Jupyter Notebook**
+- **Python** – Data analysis
+- **Pandas** – Data cleaning and transformation
+- **Matplotlib & Seaborn** – Data visualization
 
 ## Dataset
 
-The project uses the **Online Retail II** dataset, containing transaction records from two Excel sheets (`Year 2009-2010` and `Year 2010-2011`).
+The project uses the **Online Retail II** dataset, which contains transaction records from a UK-based online retailer.
 
-The analysis combines both sheets into one dataset and works with transaction information such as invoice dates, quantities, prices, and customer IDs.
+The dataset includes:
+- Invoice number and date
+- Product code and description
+- Quantity and unit price
+- Customer ID
+- Country
 
-Place `online_retail_II.xlsx` in the `data/` folder
+The two yearly sheets are combined into one dataset for analysis.
 
 ## Analysis Steps
 
 ### 1. Data exploration and cleaning
 
-- Check column types, missing values, duplicate rows, and unusual quantities or prices.
-- Remove duplicate rows and records without a customer ID.
-- Keep transactions with positive quantities and prices for this sales and customer analysis.
+- Combine the two yearly datasets.
+- Inspect data types and column information.
+- Check missing values and duplicate records.
+- Explore invalid transactions and unusual values.
 
-### 2. Sales analysis
+### 2. Data Cleaning
+- Remove records with missing Customer IDs.
+- Exclude canceled transactions and invalid quantities or prices.
+- Remove duplicate records.
+- Prepare the cleaned dataset for further analysis.
+
+### 3. Sales analysis
 
 - Calculate revenue as `Quantity × Price`.
 - Aggregate revenue by month.
 - Visualize monthly revenue trends.
 
-### 3. RFM analysis
+### 4. RFM analysis
 
 Calculate three metrics for each customer:
 
@@ -51,20 +62,32 @@ Calculate three metrics for each customer:
 
 Each metric is scored from 1 to 5. Customers are then assigned to six groups using their Recency and Frequency scores: **Champions, Loyal Customers, At Risk, Inactive, Recent Low Frequency, and Other**.
 
-### 4. Segment comparison
+## Data Visualizations
 
-- Visualize customer counts across Recency and Frequency scores.
-- Compare customer segments by size and revenue contribution.
-- Compare **customer share** and **revenue share** in a bar chart.
+### 1. Monthly Sales Revenue
 
+Monthly revenue trends from 2009 to 2011.
+
+![Monthly Sales Revenue](chart/Monthly_Sales_Revenue.png)
+
+### 2. Customer Distribution by R and F Scores
+
+Heatmap showing customer distribution based on Recency and Frequency scores.
+
+![Customer Distribution](chart/Customer_Distribution_by_R_F_Scores.png)
+
+### 3. Customer Share vs Revenue Share
+
+Comparison of customer share and revenue contribution across customer segments.
+
+![Customer Share vs Revenue Share](chart/Customer_Revenue_Share_by_Segment.png)
 ## Key Findings
 
-- Monthly sales show a seasonal increase toward **September–November** in both years.
-- **Champions** represent approximately **9.6% of customers** but generate around **48% of analyzed revenue**.
-- **Loyal Customers** contribute approximately **30.9% of revenue**.
-- Together, these two groups contribute roughly **79% of revenue**, suggesting that a relatively small group of customers accounts for much of the positive-sales revenue.
-
-These findings can help a business identify valuable customer groups and explore different retention or engagement strategies. They do not establish which strategy would be effective without further testing.
+- The analysis identifies **5,878 customers** for RFM segmentation.
+- **Champions** represent approximately 9.6% of customers but contribute around 48% of total revenue.
+- **Loyal customers** contribute approximately 30.9% of total revenue.
+- Champions and Loyal customers together generate a large share of total revenue.
+- The results can support customer retention strategies.
 
 ## Project Structure
 
